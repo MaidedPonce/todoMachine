@@ -1,0 +1,30 @@
+
+.superior {
+    background-color: #814cab;
+    color: #8bdcc0;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.superior h1 {
+    margin: auto;
+}
+
+.img:hover {
+    transition: transform 1s linear;
+    transform: translateY(20px);
+}
+
+.img {
+    height: 50px;
+    width: 50px;
+    margin-bottom: auto;
+    transition: transform 1s linear;
+}
+

@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: white;
+  background-size: 100% 100%;
+  color: #1E1E1F;
+  font-family: 'Poppins', sans-serif;
+  grid-template: repeat(9,91px)/repeat(10, 10%);
+}
+
+#root {
+  margin: 0;
+  position: relative;
+}
+
+.sectionSearch {
+  height: 220px;
+}
