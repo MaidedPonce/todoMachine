@@ -1,4 +1,6 @@
 import React from "react";
+import { TodoProvider } from "../TodoContext";
+import { AppUi } from "./AppUi";
 
 // const defaultTodos = [
 //   { text: 'Cortar cebolla', completed: true },
@@ -8,50 +10,11 @@ import React from "react";
 // ];
 
 function App() {
-  const [state, setState] = React.useState("Estado compartido")
-
   return (
-    <>
-      <TodoHeader>
-        <TodoCounter />
-        <TodoSearch />
-      </TodoHeader>
-
-      <TodoList>
-        <TodoItem state={state} />
-      </TodoList>
-    </>
+    <TodoProvider>
+      <AppUi />
+    </TodoProvider>
   );
-}
-
-function TodoHeader({children}) {
-  return (
-    <>
-    <header>
-      {children}
-    </header>
-    </>
-  );
-}
-
-function TodoList({children}) {
-  return (
-    <section className="TodoList-container">
-      {children}
-    </section>
-  );
-}
-
-function TodoCounter() {
-  return <p>TodoCounter</p>;
-}
-
-function TodoSearch() {
-  return <p>TodoSearch</p>;
-}
-
-function TodoItem({ state }) {
-  return <p>TodoItem: {state}</p>;
 }
 
 export default App;

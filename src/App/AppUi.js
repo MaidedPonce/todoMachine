@@ -10,6 +10,7 @@ import { Modal } from "../Modal";
 import TodoLoading from "../TodoLoading";
 import { TodoFormValue } from "../TodoFormValue/TodoFormValue";
 import { ModalEdit } from "../ModalEdit/ModalEdit";
+import Header from "../TodoHeader";
 
 function AppUi() {
   const {
@@ -22,14 +23,20 @@ function AppUi() {
     setOpenModal,
     openModalEdit,
     setOpenModalEdit,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
   } = React.useContext(TodoContext);
 
   return (
     <React.Fragment>
-      <section className="sectionSearch">
-        <TodoCounter />
-        <TodoSearch />
-      </section>
+      {/* <section className="sectionSearch"> */}
+      <Header>
+        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      </Header>
+     {/*  </section> */}
       <TodoList>
         {error && <p>Desespérate, hubo un error...</p>}
         {loading && <TodoLoading />}
@@ -51,13 +58,12 @@ function AppUi() {
           <TodoForm />
         </Modal>
       )}
- <CreateTodoButton setOpenModal={setOpenModal} openModal={openModal} />
+      <CreateTodoButton setOpenModal={setOpenModal} openModal={openModal} />
       {!!openModalEdit && (
         <ModalEdit>
-          <TodoFormValue  />
+          <TodoFormValue />
         </ModalEdit>
       )}
-     
     </React.Fragment>
   );
 }
