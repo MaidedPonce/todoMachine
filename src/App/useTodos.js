@@ -1,20 +1,18 @@
 import React from "react";
-import useLocalStorage  from "./useLocalStorage";
+import useLocalStorage from "./useLocalStorage";
 
-const TodoContext = React.createContext();
-
-function TodoProvider(props) {
+function useTodos() {
   const {
     item: todos,
     saveItem: saveTodos,
     loading,
     error,
   } = useLocalStorage("TODOS_V1", []);
-  
-  const [searchValue, setSearchValue] = React.useState("");
-  const [openModal, setOpenModal] = React.useState(false)
 
-  const [openModalEdit, setOpenModalEdit] = React.useState(false)
+  const [searchValue, setSearchValue] = React.useState("");
+  const [openModal, setOpenModal] = React.useState(false);
+
+  const [openModalEdit, setOpenModalEdit] = React.useState(false);
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -42,24 +40,24 @@ function TodoProvider(props) {
     const newTodos = [...todos];
     newTodos.push({
       completed: false,
-      text
-    })
+      text,
+    });
     saveTodos(newTodos);
   };
 
   const updateTodo = (text) => {
-    const newTodos = [...todos]
-    const todoItem = newTodos.find(item => item.text === text);
-    const index = newTodos.findIndex(item => item.text === text);
+    const newTodos = [...todos];
+    const todoItem = newTodos.find((item) => item.text === text);
+    const index = newTodos.findIndex((item) => item.text === text);
 
     newTodos[index] = {
       ...todoItem,
-      ...text
-    }
+      ...text,
+    };
     //return todos[index]
 
-    saveTodos(newTodos)
-  }
+    saveTodos(newTodos);
+  };
 
   const deleteTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
@@ -68,29 +66,23 @@ function TodoProvider(props) {
     saveTodos(newTodos);
   };
 
-  return (
-    <TodoContext.Provider
-      value={{
-        loading,
-        error,
-        totalTodos,
-        completedTodos,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        addTodo,
-        completeTodo,
-        deleteTodo, 
-        updateTodo,
-        openModal,
-        setOpenModal,
-        openModalEdit,
-        setOpenModalEdit
-      }}
-    >
-      {props.children}
-    </TodoContext.Provider>
-  );
+  return {
+    loading,
+    error,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    addTodo,
+    completeTodo,
+    deleteTodo,
+    updateTodo,
+    openModal,
+    setOpenModal,
+    openModalEdit,
+    setOpenModalEdit
+  };
 }
 
-export { TodoContext, TodoProvider };
+export { useTodos };

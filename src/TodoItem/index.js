@@ -1,10 +1,8 @@
 import React from 'react';
-import { TodoContext } from '../TodoContext';
 import './TodoItem.css';
 
-function TodoItem(props) {
+function TodoItem({ setOpenModalEdit, completedTodos, deleteTodo, text }) {
 
-  const { setOpenModalEdit, completedTodos, deleteTodo } = React.useContext(TodoContext)
   const onClickButton = () => {
     // props.openModal ? props.setOpenModal(false) : props.setOpenModal(true);
     setOpenModalEdit((prevState) => !prevState);
@@ -18,7 +16,7 @@ function TodoItem(props) {
         √ 
       </span>
       <p className={`TodoItem-p ${completedTodos && 'TodoItem-p--complete'}`}>
-        {props.text}
+        {text}
       </p>
       <span className="Icon Icon-delete"
       onClick={deleteTodo}
@@ -27,7 +25,7 @@ function TodoItem(props) {
       </span>
 
       <button 
-      onClick={() => onClickButton(props.text)}
+      onClick={() => onClickButton(text)}
       > 
         Editar
       </button>
