@@ -31,3 +31,7 @@
 .color5 {color: #e5b1bc;}
 
 .coloramarillo {color: #c0bf78}
+
+.TodoSearch:disabled {
+  opacity: 25%;
+}

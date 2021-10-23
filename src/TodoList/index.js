@@ -1,11 +1,20 @@
 import React from 'react';
 import './TodoList.css'
 
-function TodoList({children}) {
+function TodoList(props) {
+
+  const propSwi = props.children || props.render;
+
   return (
-    <section>
+    <section className="TodoList-container">
+      {props.error && props.onError()}
+      {props.loading && props.onLoading()}
+      {(!props.loading && !props.totalTodos) && props.onEmptyTodos()}
+
+      {(!!props.totalTodos && !props.searchedTodos.length) && props.onEmptySearchResult(props.searchText)}
+      {props.searchedTodos.map(propSwi)}
       <ul>
-        {children}
+        {props.children}
       </ul>
     </section>
   );

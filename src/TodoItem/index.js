@@ -1,34 +1,34 @@
 import React from 'react';
 import './TodoItem.css';
 
-function TodoItem({ setOpenModalEdit, completedTodos, deleteTodo, text }) {
+function TodoItem(props) {
 
-  const onClickButton = () => {
+  /* const onClickButton = () => {
     // props.openModal ? props.setOpenModal(false) : props.setOpenModal(true);
     setOpenModalEdit((prevState) => !prevState);
   };
-
+ */
   return (
     <li className="TodoItem">
-      <span className={`Icon Icon-check ${completedTodos && 'Icon-check--active'}`}
-      onClick={completedTodos}
+      <span className={`Icon Icon-check ${props.onComplete && 'Icon-check--active'}`}
+      onClick={props.onComplete}
       >
         √ 
       </span>
-      <p className={`TodoItem-p ${completedTodos && 'TodoItem-p--complete'}`}>
-        {text}
+      <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
+        {props.text}
       </p>
       <span className="Icon Icon-delete"
-      onClick={deleteTodo}
+      onClick={props.onDelete}
       >
         X
       </span>
 
-      <button 
+     {/*  <button 
       onClick={() => onClickButton(text)}
       > 
         Editar
-      </button>
+      </button> */}
     </li>
   );
 }
