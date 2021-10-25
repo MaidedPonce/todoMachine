@@ -2,7 +2,7 @@ import React from "react";
 import { useTodos } from "./useTodos";
 import { TodoCounter } from "../TodoCounter/TodoCounter";
 import { TodoSearch } from "../TodoSearch/TodoSearch";
-import { TodoList } from "../TodoList";
+import { TodoList } from "../TodoList/TodoList";
 import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { TodoForm } from "../TodoForm";
