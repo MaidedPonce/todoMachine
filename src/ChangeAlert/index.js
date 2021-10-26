@@ -1,7 +1,8 @@
 import React from "react";
 import withStorageListener from "./withStorageListener";
 
-function ChangeAlert({ show, toggleShow }) {
+function ChangeAlert({ sincronize }) {
+   const { show, toggleShow } = withStorageListener(sincronize)
   if (show) {
     return (
       <div>
@@ -16,6 +17,5 @@ function ChangeAlert({ show, toggleShow }) {
     return null;
   }
 }
-const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert);
 
-export default ChangeAlertWithStorageListener;
+export default ChangeAlert;
