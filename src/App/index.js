@@ -11,7 +11,8 @@ import TodoLoading from "../TodoLoading";
 import Header from "../TodoHeader/Header";
 import { TodoError } from "../TodoError/todoError";
 import { EmptyTodos } from "../EmptyTodos/emptyTodos";
-
+import ChangeAlert from "../ChangeAlert";
+import ChangeAlertWithStorageListener from "../ChangeAlert";
 // const defaultTodos = [
 //   { text: 'Cortar cebolla', completed: true },
 //   { text: 'Tomar el cursso de intro a React', completed: false },
@@ -33,6 +34,7 @@ function App() {
     searchValue,
     setSearchValue,
     addTodo,
+    sincronize
   } = useTodos();
 
   return (
@@ -110,6 +112,8 @@ function App() {
           <TodoFormValue />
         </ModalEdit>
       )} */}
+
+      <ChangeAlertWithStorageListener sincronize={sincronize}/>
     </React.Fragment>
   );
 }
