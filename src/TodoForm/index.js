@@ -20,14 +20,14 @@ function TodoForm({ addTodo, setOpenModal }) {
 
   return (
     <form onSubmit={onSubmit}>
-      <label>Escribe tu nuevo TODO</label>
+      <label className="lbl">Escribe tu nuevo TODO</label>
       <textarea value={newTodoValue} onChange={onChange} placeholder="Amar a Andy Biersack <3" />
 
-      <div>
-        <button type="button" onClick={onCancel}>
+      <div className="containerButton">
+        <button className="TodoForm-button-cancel" type="button" onClick={onCancel}>
           Cancelar
         </button>
-        <button type="submit">Añadir</button>
+        <button className="TodoForm-button-add" type="submit">Añadir</button>
       </div>
     </form>
   );

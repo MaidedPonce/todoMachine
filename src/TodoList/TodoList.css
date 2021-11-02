@@ -1,8 +1,12 @@
-
-section {
+/* .TodoListMax {
+  flex: 1;
+}
+ */
+.TodoList-container {
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 100vh;
-  flex: 1;
 }
 
 ul {
@@ -16,4 +20,16 @@ li {
   border-radius: 50px;
   width: 24%;
   height: 10vh;
+}
+
+@media only screen and (max-width: 900px){
+  .TodoListMax {
+    width: 696px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  /* .TodoListMax {
+    width: 85.6%;
+  } */
 }

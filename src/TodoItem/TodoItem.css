@@ -1,18 +1,23 @@
 .TodoItem {
     background-color: #FAFAFA;
+    border-radius: 25px;
     position: relative;
-    display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 24px;
     box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
     align-self: start;
-    height: 150px;
-    width: max-content;
+    height: max-content;
+    width: 300px;
+    word-break: break-all;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;;
+    float: left;
   }
   
   .TodoItem-p {
-    margin: 24px 0 24px 24px;
+    margin: 24px auto 24px auto;
     width: calc(100% - 120px);
     font-size: 18px;
     line-height: 24px;
@@ -36,7 +41,8 @@
   
   .Icon-check {
     position: absolute;
-    left: 12px;
+    left: 3px;
+    top: 30%;
   }
   .Icon-check--active {
     color: #4caf50;
@@ -44,8 +50,8 @@
   
   .Icon-delete {
     position: absolute;
-    top: -24px;
-    right: 0;
+    top: -12px;
+    right: -24px;
   }
   .Icon-delete:hover {
     color: red;
@@ -55,3 +61,9 @@
     color: #f4fddc;
   }
   
+  @media only screen and (max-width: 695px){
+    .TodoItem {
+      margin: 20px 0;
+      width: 98%;
+    }
+  }
