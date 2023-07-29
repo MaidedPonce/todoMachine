@@ -1,62 +1,66 @@
-import React from "react";
-import "./TodoItem.css";
+import React from 'react'
+import './TodoItem.css'
 
-function TodoItem(props) {
+/**
+ *
+ * @param props
+ */
+function TodoItem (props) {
   /* const onClickButton = () => {
     // props.openModal ? props.setOpenModal(false) : props.setOpenModal(true);
     setOpenModalEdit((prevState) => !prevState);
   };
  */
   return (
-    <li className="TodoItem">
+    <li className='TodoItem'>
       <span
         className={`Icon Icon-check ${
-          props.onComplete && "Icon-check--active"
+          props.onComplete && 'Icon-check--active'
         }`}
         onClick={props.onComplete}
       >
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 40 40"
-          stroke="currentColor"
+          xmlns='http://www.w3.org/2000/svg'
+          className='h-6 w-6'
+          fill='none'
+          viewBox='0 0 40 40'
+          stroke='currentColor'
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 13l4 4L19 7"
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            d='M5 13l4 4L19 7'
           />
         </svg>
       </span>
-      <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
+      <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
         {props.text}
       </p>
-      <span className="Icon Icon-delete" onClick={props.onDelete}>
+      <span className='Icon Icon-delete' onClick={props.onDelete}>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 50 50"
-          stroke="currentColor"
+          xmlns='http://www.w3.org/2000/svg'
+          className='h-6 w-6'
+          fill='none'
+          viewBox='0 0 50 50'
+          stroke='currentColor'
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            d='M6 18L18 6M6 6l12 12'
           />
         </svg>
       </span>
 
-      {/*  <button 
+      {/*  <button
       onClick={() => onClickButton(text)}
-      > 
+      >
         Editar
       </button> */}
     </li>
-  );
+  )
 }
 
-export { TodoItem };
+export { TodoItem }

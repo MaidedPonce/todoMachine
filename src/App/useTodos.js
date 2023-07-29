@@ -1,71 +1,74 @@
-import React from "react";
-import useLocalStorage from "./useLocalStorage";
+import React from 'react'
+import useLocalStorage from './useLocalStorage'
 
-function useTodos() {
+/**
+ *
+ */
+function useTodos () {
   const {
     item: todos,
     saveItem: saveTodos,
     loading,
     error,
     sincronize
-  } = useLocalStorage("TODOS_V1", []);
+  } = useLocalStorage('TODOS_V1', [])
 
-  const [searchValue, setSearchValue] = React.useState("");
-  const [openModal, setOpenModal] = React.useState(false);
+  const [searchValue, setSearchValue] = React.useState('')
+  const [openModal, setOpenModal] = React.useState(false)
 
-  const [openModalEdit, setOpenModalEdit] = React.useState(false);
+  const [openModalEdit, setOpenModalEdit] = React.useState(false)
 
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
+  const completedTodos = todos.filter((todo) => !!todo.completed).length
+  const totalTodos = todos.length
 
-  let searchedTodos = [];
+  let searchedTodos = []
 
   if (!searchValue.length >= 1) {
-    searchedTodos = todos;
+    searchedTodos = todos
   } else {
     searchedTodos = todos.filter((todo) => {
-      const todoText = todo.text.toLowerCase();
-      const searchText = searchValue.toLowerCase();
-      return todoText.includes(searchText);
-    });
+      const todoText = todo.text.toLowerCase()
+      const searchText = searchValue.toLowerCase()
+      return todoText.includes(searchText)
+    })
   }
 
   const completeTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-    const newTodos = [...todos];
-    newTodos[todoIndex].completed = true;
-    saveTodos(newTodos);
-  };
+    const todoIndex = todos.findIndex((todo) => todo.text === text)
+    const newTodos = [...todos]
+    newTodos[todoIndex].completed = true
+    saveTodos(newTodos)
+  }
 
   const addTodo = (text) => {
-    const newTodos = [...todos];
+    const newTodos = [...todos]
     newTodos.push({
       completed: false,
-      text,
-    });
-    saveTodos(newTodos);
-  };
+      text
+    })
+    saveTodos(newTodos)
+  }
 
   const updateTodo = (text) => {
-    const newTodos = [...todos];
-    const todoItem = newTodos.find((item) => item.text === text);
-    const index = newTodos.findIndex((item) => item.text === text);
+    const newTodos = [...todos]
+    const todoItem = newTodos.find((item) => item.text === text)
+    const index = newTodos.findIndex((item) => item.text === text)
 
     newTodos[index] = {
       ...todoItem,
-      ...text,
-    };
-    //return todos[index]
+      ...text
+    }
+    // return todos[index]
 
-    saveTodos(newTodos);
-  };
+    saveTodos(newTodos)
+  }
 
   const deleteTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-    const newTodos = [...todos];
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
+    const todoIndex = todos.findIndex((todo) => todo.text === text)
+    const newTodos = [...todos]
+    newTodos.splice(todoIndex, 1)
+    saveTodos(newTodos)
+  }
 
   return {
     loading,
@@ -84,7 +87,7 @@ function useTodos() {
     openModalEdit,
     setOpenModalEdit,
     sincronize
-  };
+  }
 }
 
-export { useTodos };
+export { useTodos }

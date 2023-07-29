@@ -1,13 +1,17 @@
-import React from "react";
-import "./TodoList.css";
+import React from 'react'
+import './TodoList.css'
 
-function TodoList(props) {
-  const propSwi = props.children || props.render;
+/**
+ *
+ * @param props
+ */
+function TodoList (props) {
+  const propSwi = props.children || props.render
 
   return (
-      <section className="TodoList-container">
-        {props.loading && props.onLoading()}
-        <section className="TodoListMax">
+    <section className='TodoList-container'>
+      {props.loading && props.onLoading()}
+      <section className='TodoListMax'>
         {props.error && props.onError()}
         {!props.loading && !props.totalTodos && props.onEmptyTodos()}
 
@@ -16,9 +20,9 @@ function TodoList(props) {
           props.onEmptySearchResult(props.searchText)}
         {!props.loading && !props.error && props.searchedTodos.map(propSwi)}
         <ul>{props.children}</ul>
-        </section>
       </section>
-  );
+    </section>
+  )
 }
 
-export { TodoList };
+export { TodoList }

@@ -4,9 +4,10 @@
   "private": true,
   "dependencies": {
     "cra-template": "1.1.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,7 +36,14 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-standard": "^17.1.0",
+    "eslint-config-standard-jsx": "^11.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsdoc": "^46.4.4",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
     "gh-pages": "^3.2.3"
   },
-  "homepage" : "https://MaidedPonce.github.io/todoMachine"
+  "homepage": "https://MaidedPonce.github.io/todoMachine"
 }

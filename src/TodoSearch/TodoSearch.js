@@ -1,15 +1,21 @@
-import React from "react";
-import "./TodoSearch.css";
+import React from 'react'
+import './TodoSearch.css'
 
-function TodoSearch({ searchValue, setSearchValue, loading }) {
-  
+/**
+ *
+ * @param root0
+ * @param root0.searchValue
+ * @param root0.setSearchValue
+ * @param root0.loading
+ */
+function TodoSearch ({ searchValue, setSearchValue, loading }) {
   const onSearchValueChange = (event) => {
-    setSearchValue(event.target.value);
-  };
+    setSearchValue(event.target.value)
+  }
   return (
     <input
-      className="TodoSearch"
-      placeholder="Cebolla"
+      className='TodoSearch'
+      placeholder='Cebolla'
       value={searchValue}
       onChange={onSearchValueChange}
       disabled={loading}
@@ -17,4 +23,4 @@ function TodoSearch({ searchValue, setSearchValue, loading }) {
   )
 }
 
-export { TodoSearch };
+export { TodoSearch }
