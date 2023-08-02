@@ -1,5 +1,8 @@
 import { createContext, useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
+import { users } from '../mocks/users'
+
+// const adminList = ['Irisval', 'Retaxmaster', 'freddier']
 
 const AuthContext = createContext()
 
@@ -7,9 +10,18 @@ function AuthProvider ({ children }) {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
 
-  const login = ({ userName }) => {
-    setUser({ userName })
-    navigate('/profile')
+  const login = (userName) => {
+    try {
+      const isAdmin = users.find(admin => admin?.name === userName)
+      if (isAdmin) {
+        setUser({ isAdmin })
+        navigate('/profile')
+      } else {
+        throw new Error('Ha habido un error')
+      }
+    } catch (error) {
+      console.log('usuarix no encontradx')
+    }
   }
 
   const logout = () => {
@@ -30,7 +42,17 @@ function useAuth () {
   return auth
 }
 
+function AuthRouter (props) {
+  const auth = useAuth()
+  console.log(auth)
+  if (!auth?.user) {
+    return <Navigate to='/login' />
+  }
+  return props.children
+}
+
 export {
   AuthProvider,
-  useAuth
+  useAuth,
+  AuthRouter
 }

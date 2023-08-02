@@ -6,23 +6,40 @@ import ProfilePage from './ProfilePage'
 import PostPage from './PostPage'
 import LoginPage from './LoginPage'
 import LogoutPage from './LogoutPage'
-import { AuthProvider } from './auth'
-import { Menu } from './Menu'
+import { AuthProvider, AuthRouter } from './auth'
+// import { Menu } from './Menu'
 
 function App () {
   return (
     <>
       <HashRouter>
         <AuthProvider>
-          <Menu />
           <Routes>
             <Route path='/' element={<HomePage />} />
-            <Route path='/blog' element={<BlogPage />}>
-              <Route path='/blog/:slug' element={<PostPage />} />
+            <Route
+              path='/blog' element={
+                <AuthRouter>
+                  <BlogPage />
+                </AuthRouter>
+              }
+            >
+              <Route
+                path='/blog/:slug' element={
+                  <AuthRouter>
+                    <PostPage />
+                  </AuthRouter>
+              }
+              />
             </Route>
             <Route path='/login' element={<LoginPage />} />
             <Route path='/logout' element={<LogoutPage />} />
-            <Route path='/profile' element={<ProfilePage />} />
+            <Route
+              path='/profile' element={
+                <AuthRouter>
+                  <ProfilePage />
+                </AuthRouter>
+            }
+            />
             <Route path='*' element={<p>No encontrado:(</p>} />
           </Routes>
         </AuthProvider>

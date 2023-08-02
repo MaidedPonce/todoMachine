@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useAuth } from './auth'
+import { Navigate } from 'react-router-dom'
 
 const LoginPage = () => {
   const [username, setUserName] = useState('')
@@ -7,6 +8,9 @@ const LoginPage = () => {
   const login = (e) => {
     e.preventDefault()
     auth.login(username)
+  }
+  if (auth.user) {
+    return <Navigate to='/profile' />
   }
   return (
     <div>
