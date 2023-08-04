@@ -1,15 +1,16 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import { blogData } from '../mocks/blogs'
+import { useAuth } from './auth'
 
 const BlogPage = () => {
+  const auth = useAuth()
   return (
     <>
       <h1>Blog Page</h1>
       <Outlet />
       <ul>
         {
-          blogData.map((post, index) => (
+          auth.blogs.map((post, index) => (
             <BlogLink post={post} key={index} />
           ))
         }

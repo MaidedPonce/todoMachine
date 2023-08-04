@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { users } from '../mocks/users'
+import { blogData } from '../mocks/blogs'
 
 // const adminList = ['Irisval', 'Retaxmaster', 'freddier']
 
@@ -9,13 +10,15 @@ const AuthContext = createContext()
 function AuthProvider ({ children }) {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
-
+  const [blogs, setBlogs] = useState(blogData)
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/'
   const login = (userName) => {
     try {
       const isAdmin = users.find(admin => admin?.name === userName)
       if (isAdmin) {
         setUser({ isAdmin })
-        navigate('/profile')
+        navigate(from, { replace: true })
       } else {
         throw new Error('Ha habido un error')
       }
@@ -29,7 +32,13 @@ function AuthProvider ({ children }) {
     navigate('/')
   }
 
-  const auth = { user, login, logout }
+  const deletePost = (user, postAuthor) => {
+    if (user === postAuthor) {
+      auth.setBlogs(auth.blogs.filter((blog) => blog.author !== postAuthor))
+    }
+  }
+
+  const auth = { user, login, logout, blogs, setBlogs, deletePost }
   return (
     <AuthContext.Provider value={auth}>
       {children}
@@ -44,9 +53,9 @@ function useAuth () {
 
 function AuthRouter (props) {
   const auth = useAuth()
-  console.log(auth)
+  const location = useLocation()
   if (!auth?.user) {
-    return <Navigate to='/login' />
+    return <Navigate to='/login' state={{ from: location }} replace />
   }
   return props.children
 }
