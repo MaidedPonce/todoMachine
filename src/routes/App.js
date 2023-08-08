@@ -1,12 +1,13 @@
 import React from 'react'
 import { HashRouter, Routes, Route } from 'react-router-dom'
-import HomePage from './HomePage'
-import BlogPage from './BlogPage'
+import HomePage from '../pages/Home/HomePage'
+import BlogPage from '../routes/BlogPage'
 import ProfilePage from './ProfilePage'
 import PostPage from './PostPage'
-import LoginPage from './LoginPage'
-import LogoutPage from './LogoutPage'
+import LoginPage from '../pages/LoginPage'
+import LogoutPage from '../pages/LogoutPage'
 import { AuthProvider, AuthRouter } from './auth'
+import NewTodoRoute from './home/todos/new-todo'
 // import { Menu } from './Menu'
 
 function App () {
@@ -16,6 +17,8 @@ function App () {
         <AuthProvider>
           <Routes>
             <Route path='/' element={<HomePage />} />
+            <Route path='/new-todo' element={<NewTodoRoute />} />
+            <Route path='/edit-todo/:id' element={<NewTodoRoute />} />
             <Route
               path='/blog' element={
                 <AuthRouter>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import { useAuth } from './auth'
+import { useAuth } from '../App/auth'
 
 const BlogPage = () => {
   const auth = useAuth()
