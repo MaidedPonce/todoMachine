@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useAuth } from './auth'
+import { useAuth } from '../../routes/auth'
 
 const PostPage = () => {
   const navigate = useNavigate()

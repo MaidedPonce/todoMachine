@@ -1,16 +1,17 @@
 {
     "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@pages/*": ["src/pages/*"],
+            "@ui/*": ["src/ui/*"],
+            "@routes/*": ["src/routes/*"]
+        },
         "module": "ESNext",
         "moduleResolution": "Node",
         "target": "ES2020",
         "jsx": "react",
         "strictNullChecks": true,
-        "strictFunctionTypes": true
+        "strictFunctionTypes": true,
     },
-    "exclude": ["node_modules", "**/node_modules/*"],
-    "baseUrl": ".",
-    "paths": {
-        "@pages/*": ["src/pages/*"],
-        "@ui/*": ["src/ui/*"]
-    }
+    "exclude": ["node_modules", "**/node_modules/*"]
 }

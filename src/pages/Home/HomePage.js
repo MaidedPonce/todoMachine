@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTodos } from '../../App/useTodos'
+import { useTodos } from '../../routes/useTodos'
 import { TodoCounter } from '../../ui/TodoCounter/TodoCounter'
 import { TodoSearch } from '../../ui/TodoSearch/TodoSearch'
 import { TodoList } from '../../ui/TodoList/TodoList'

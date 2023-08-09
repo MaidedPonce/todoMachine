@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useAuth } from '../../App/auth'
+import { useAuth } from '../../routes/auth'
 
 function Menu () {
   const auth = useAuth()
