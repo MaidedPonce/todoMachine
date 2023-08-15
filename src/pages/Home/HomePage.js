@@ -5,13 +5,12 @@ import { TodoSearch } from '../../ui/TodoSearch/TodoSearch'
 import { TodoList } from '../../ui/TodoList/TodoList'
 import { TodoItem } from '../../ui/TodoItem'
 import { CreateTodoButton } from '../../ui/CreateTodoButton'
-import { TodoForm } from '../../ui/TodoForm'
-import { Modal } from '../../ui/Modal'
 import TodoLoading from '../../ui/TodoLoading'
 import Header from '../../ui/TodoHeader/Header'
 import { TodoError } from '../../ui/TodoError/todoError'
 import { EmptyTodos } from '../../ui/EmptyTodos/emptyTodos'
 import ChangeAlert from '../../ui/ChangeAlert'
+import { useNavigate } from 'react-router-dom'
 // const defaultTodos = [
 //   { text: 'Cortar cebolla', completed: true },
 //   { text: 'Tomar el cursso de intro a React', completed: false },
@@ -26,16 +25,15 @@ function HomePage () {
     searchedTodos,
     completeTodo,
     deleteTodo,
-    openModal,
-    setOpenModal,
+    // openModal,
+    // setOpenModal,
     totalTodos,
     completedTodos,
     searchValue,
     setSearchValue,
-    addTodo,
     sincronize
   } = useTodos()
-
+  const navigate = useNavigate()
   return (
     <>
       <Header>
@@ -73,11 +71,12 @@ function HomePage () {
       /> */}
         {todo => (
           <TodoItem
-            key={todo.text}
+            key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
+            onComplete={() => completeTodo(todo.id)}
+            onDelete={() => deleteTodo(todo.id)}
+            onEdit={() => navigate('/edit-todo' + todo.id)}
           />
         )}
       </TodoList>
@@ -99,12 +98,12 @@ function HomePage () {
         ))}
       </TodoList> */}
 
-      {!!openModal && (
+      {/* {!!openModal && (
         <Modal>
           <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
         </Modal>
-      )}
-      <CreateTodoButton setOpenModal={setOpenModal} openModal={openModal} />
+      )} */}
+      <CreateTodoButton onClick={() => navigate('/new')} />
       {/*       {!!openModalEdit && (
         <ModalEdit>
           <TodoFormValue />

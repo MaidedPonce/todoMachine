@@ -1,8 +1,13 @@
+import { TodoForm } from '@ui/TodoForm'
 import React from 'react'
 
 const index = () => {
   return (
-    <div>index</div>
+    <TodoForm
+      label='Escribe tu nuevo TODO'
+      submitText='Añadir'
+      submitEvent={() => { console.log('Llamar a todo') }}
+    />
   )
 }
 

@@ -11,7 +11,7 @@ function useTodos () {
     loading,
     error,
     sincronize
-  } = useLocalStorage('TODOS_V1', [])
+  } = useLocalStorage('TODOS_V2', [])
 
   const [searchValue, setSearchValue] = React.useState('')
   const [openModal, setOpenModal] = React.useState(false)
@@ -33,18 +33,20 @@ function useTodos () {
     })
   }
 
-  const completeTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text)
+  const completeTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id)
     const newTodos = [...todos]
     newTodos[todoIndex].completed = true
     saveTodos(newTodos)
   }
 
   const addTodo = (text) => {
+    const id = newTodoID()
     const newTodos = [...todos]
     newTodos.push({
       completed: false,
-      text
+      text,
+      id
     })
     saveTodos(newTodos)
   }
@@ -63,8 +65,8 @@ function useTodos () {
     saveTodos(newTodos)
   }
 
-  const deleteTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text)
+  const deleteTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id)
     const newTodos = [...todos]
     newTodos.splice(todoIndex, 1)
     saveTodos(newTodos)
@@ -88,6 +90,19 @@ function useTodos () {
     setOpenModalEdit,
     sincronize
   }
+}
+
+function newTodoID () {
+  const characteresNum = 10
+  const words = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+  const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  const getAllCharacters = words.concat(numbers)
+  let result = ''
+  for (let index = 0; index < characteresNum; index++) {
+    const randomIndex = Math.floor(Math.random() * getAllCharacters.length)
+    result += getAllCharacters[randomIndex]
+  }
+  return result
 }
 
 export { useTodos }

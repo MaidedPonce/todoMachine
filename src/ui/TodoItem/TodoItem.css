@@ -57,6 +57,20 @@
     color: red;
   }
 
+  .Icon-edit {
+    position: absolute;
+    top: -17px;
+    right: 25px;
+    border: none;
+    background: transparent;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .Icon-edit:hover {
+    color: blue;
+  }
+
   .Icon-check--update {
     color: #f4fddc;
   }
@@ -66,4 +80,11 @@
       margin: 20px 0;
       width: 98%;
     }
+  }
+
+  .editButton {
+    border: none;
+    background-color: transparent;
+    height: 2rem;
+    width: 2rem;
   }
