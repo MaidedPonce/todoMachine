@@ -8,6 +8,7 @@ import LoginPage from '../pages/LoginPage'
 import LogoutPage from '../pages/LogoutPage'
 import { AuthProvider, AuthRouter } from './auth'
 import NewTodoRoute from './home/todos/new-todo'
+import EditTodoPage from './home/todos/edit-todo'
 // import { Menu } from './Menu'
 
 function App () {
@@ -18,7 +19,7 @@ function App () {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/new-todo' element={<NewTodoRoute />} />
-            <Route path='/edit-todo/:id' element={<NewTodoRoute />} />
+            <Route path='/edit-todo/:id' element={<EditTodoPage />} />
             <Route
               path='/blog' element={
                 <AuthRouter>

@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
  * @param root0.setOpenModal
  */
 function TodoForm (props) {
-  const [newTodoValue, setNewTodoValue] = React.useState('')
+  const [newTodoValue, setNewTodoValue] = React.useState(props.defaultTodoText || '')
   const navigate = useNavigate()
   const onChange = (event) => {
     setNewTodoValue(event.target.value)

@@ -74,9 +74,16 @@ function HomePage () {
             key={todo.id}
             text={todo.text}
             completed={todo.completed}
+            onEdit={() => {
+              navigate(
+                '/edit-todo/' + todo.id,
+                {
+                  state: { todo }
+                }
+              )
+            }}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
-            onEdit={() => navigate('/edit-todo' + todo.id)}
           />
         )}
       </TodoList>
@@ -103,7 +110,7 @@ function HomePage () {
           <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
         </Modal>
       )} */}
-      <CreateTodoButton onClick={() => navigate('/new')} />
+      <CreateTodoButton onClick={() => navigate('/new-todo')} />
       {/*       {!!openModalEdit && (
         <ModalEdit>
           <TodoFormValue />

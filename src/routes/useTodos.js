@@ -40,6 +40,13 @@ function useTodos () {
     saveTodos(newTodos)
   }
 
+  const editTodo = (id, newText) => {
+    const todoIndex = todos.findIndex(todo => todo.id === id)
+    const newTodos = [...todos]
+    newTodos[todoIndex].text = newText
+    saveTodos(newTodos)
+  }
+
   const addTodo = (text) => {
     const id = newTodoID()
     const newTodos = [...todos]
@@ -72,6 +79,11 @@ function useTodos () {
     saveTodos(newTodos)
   }
 
+  const getTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id)
+    return todos[todoIndex]
+  }
+
   return {
     loading,
     error,
@@ -88,7 +100,9 @@ function useTodos () {
     setOpenModal,
     openModalEdit,
     setOpenModalEdit,
-    sincronize
+    sincronize,
+    editTodo,
+    getTodo
   }
 }
 
