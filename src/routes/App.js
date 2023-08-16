@@ -9,7 +9,6 @@ import LogoutPage from '../pages/LogoutPage'
 import { AuthProvider, AuthRouter } from './auth'
 import NewTodoRoute from './home/todos/new-todo'
 import EditTodoPage from './home/todos/edit-todo'
-// import { Menu } from './Menu'
 
 function App () {
   return (
