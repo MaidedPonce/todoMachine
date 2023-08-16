@@ -1,0 +1,90 @@
+.TodoItem {
+    background-color: #FAFAFA;
+    border-radius: 25px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
+    align-self: start;
+    height: max-content;
+    width: 300px;
+    word-break: break-all;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;;
+    float: left;
+  }
+  
+  .TodoItem-p {
+    margin: 24px auto 24px auto;
+    width: calc(100% - 120px);
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  .TodoItem-p--complete {
+    text-decoration: line-through;
+  }
+  
+  .Icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    font-size: 24px;
+    font-weight: bold;
+    /* background-color: #CCC; */
+  }
+  
+  .Icon-check {
+    position: absolute;
+    left: 3px;
+    top: 30%;
+  }
+  .Icon-check--active {
+    color: #4caf50;
+  }
+  
+  .Icon-delete {
+    position: absolute;
+    top: -12px;
+    right: -24px;
+  }
+  .Icon-delete:hover {
+    color: red;
+  }
+
+  .Icon-edit {
+    position: absolute;
+    top: -17px;
+    right: 25px;
+    border: none;
+    background: transparent;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .Icon-edit:hover {
+    color: blue;
+  }
+
+  .Icon-check--update {
+    color: #f4fddc;
+  }
+  
+  @media only screen and (max-width: 695px){
+    .TodoItem {
+      margin: 20px 0;
+      width: 98%;
+    }
+  }
+
+  .editButton {
+    border: none;
+    background-color: transparent;
+    height: 2rem;
+    width: 2rem;
+  }
