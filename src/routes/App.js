@@ -31,7 +31,7 @@ function App () {
                   <AuthRouter>
                     <PostPage />
                   </AuthRouter>
-              }
+                }
               />
             </Route>
             <Route path='/login' element={<LoginPage />} />
@@ -41,7 +41,7 @@ function App () {
                 <AuthRouter>
                   <ProfilePage />
                 </AuthRouter>
-            }
+              }
             />
             <Route path='*' element={<p>No encontrado:(</p>} />
           </Routes>
