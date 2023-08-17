@@ -30,7 +30,7 @@ function TodoForm (props) {
   return (
     <form onSubmit={onSubmit}>
       <label className='lbl'>{props.label}</label>
-      <textarea value={newTodoValue} onChange={onChange} placeholder='Amar a Andy Biersack <3' />
+      <textarea disabled={props.loading} value={newTodoValue} onChange={onChange} placeholder='Amar a Andy Biersack <3' />
 
       <div className='containerButton'>
         <button className='TodoForm-button-cancel' type='button' onClick={onCancel}>

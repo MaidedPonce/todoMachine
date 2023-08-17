@@ -24,6 +24,7 @@ const EditTodoPage = () => {
       label='Escribe tu nuevo TODO'
       defaultTodoText={todoText}
       submitText='Añadir'
+      loading={loading}
       submitEvent={(newText) => { editTodo(id, newText) }}
     />
   )
