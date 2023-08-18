@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css'
-import { useNavigate } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 /**
  *
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
  */
 function TodoForm (props) {
   const [newTodoValue, setNewTodoValue] = React.useState(props.defaultTodoText || '')
-  const navigate = useNavigate()
+  const navigate = useHistory()
   const onChange = (event) => {
     setNewTodoValue(event.target.value)
   }

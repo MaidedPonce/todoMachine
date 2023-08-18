@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+/* eslint-disable  */
+import React, { useEffect, useState } from 'react'
 import './TodoSearch.css'
-import { useSearchParams } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
 
 /**
  *
@@ -10,7 +11,7 @@ import { useSearchParams } from 'react-router-dom'
  * @param root0.loading
  */
 function TodoSearch ({ searchValue, setSearchValue, loading }) {
-  const [searchParams, setSearchParams] = useSearchParams()
+  /* const [searchParams, setSearchParams] = useState()
 
   const onSearchValueChange = (event) => {
     const searchParams = {
@@ -18,19 +19,19 @@ function TodoSearch ({ searchValue, setSearchValue, loading }) {
     }
     setSearchValue(searchParams)
     setSearchParams(searchParams)
-  }
-  useEffect(() => {
+  } */
+  /* useEffect(() => {
     const search = searchParams.get('search') ?? ''
     setSearchValue(search)
-  }, [searchParams])
+  }, [searchParams]) */
 
   return (
     <input
       className='TodoSearch'
       placeholder='Cebolla'
       value={searchValue}
-      onChange={onSearchValueChange}
-      disabled={loading}
+      /* onChange={onSearchValueChange}
+      disabled={loading} */
     />
   )
 }

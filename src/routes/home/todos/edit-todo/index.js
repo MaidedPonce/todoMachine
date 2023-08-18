@@ -9,11 +9,11 @@ const EditTodoPage = () => {
   const id = params.id
 
   const location = useLocation()
-
+  console.log(location)
   let todoText
-  if (location.state?.todo) {
+  /* if (location.state?.todo) {
     todoText = location.state.todo.text
-  } else if (loading) {
+  } else  */if (loading) {
     return <p>Cargando...</p>
   } else {
     const todo = getTodo(id)

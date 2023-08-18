@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import React from 'react'
 import { useTodos } from '../../routes/useTodos'
 import { TodoCounter } from '../../ui/TodoCounter/TodoCounter'
@@ -10,7 +11,7 @@ import Header from '../../ui/TodoHeader/Header'
 import { TodoError } from '../../ui/TodoError/todoError'
 import { EmptyTodos } from '../../ui/EmptyTodos/emptyTodos'
 import ChangeAlert from '../../ui/ChangeAlert'
-import { useNavigate } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 // const defaultTodos = [
 //   { text: 'Cortar cebolla', completed: true },
 //   { text: 'Tomar el cursso de intro a React', completed: false },
@@ -33,7 +34,7 @@ function HomePage () {
     setSearchValue,
     sincronize
   } = useTodos()
-  const navigate = useNavigate()
+  const navigate = useHistory()
   return (
     <>
       <Header>
@@ -56,7 +57,7 @@ function HomePage () {
         onError={() => <TodoError />}
         onLoading={() => <TodoLoading />}
         onEmptyTodos={() => <EmptyTodos />}
-        onEmptySearchResult={(searchText) => <p>No hay resultado para {searchText}</p>}
+        /* onEmptySearchResult={(searchText) => <p>No hay resultado para {searchText}</p>} */
       >
 
         {/* render={todo => (
@@ -69,13 +70,13 @@ function HomePage () {
           />
         )}
       /> */}
-        {todo => (
+        {/* {todo => (
           <TodoItem
             key={todo.id}
             text={todo.text}
             completed={todo.completed}
             onEdit={() => {
-              navigate(
+              navigate.push(
                 '/edit-todo/' + todo.id,
                 {
                   state: { todo }
@@ -85,7 +86,7 @@ function HomePage () {
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
           />
-        )}
+        )} */}holi
       </TodoList>
       {/* <TodoList>
         {error && <p>Desespérate, hubo un error...</p>}

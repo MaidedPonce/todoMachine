@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { useAuth } from '../../routes/auth'
 
 const PostPage = () => {
-  const navigate = useNavigate()
+  const navigate = useHistory()
   const { slug } = useParams()
   const auth = useAuth()
   const getPost = auth.blogs.find((post) => post.slug === slug)

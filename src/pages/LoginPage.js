@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useAuth } from '../routes/auth'
-import { Navigate } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 const LoginPage = () => {
   const [username, setUserName] = useState('')
@@ -10,7 +10,7 @@ const LoginPage = () => {
     auth.login(username)
   }
   if (auth.user) {
-    return <Navigate to='/profile' />
+    return <Redirect to='/profile' />
   }
   return (
     <div>

@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import React from 'react'
 import './TodoList.css'
 
@@ -9,7 +10,7 @@ function TodoList (props) {
   const propSwi = props.children || props.render
 
   return (
-    <section className='TodoList-container'>
+  /*  <section className='TodoList-container'>
       {props.loading && props.onLoading()}
       <section className='TodoListMax'>
         {props.error && props.onError()}
@@ -19,9 +20,11 @@ function TodoList (props) {
           !props.searchedTodos.length &&
           props.onEmptySearchResult(props.searchText)}
         {!props.loading && !props.error && props.searchedTodos.map(propSwi)}
-        <ul>{props.children}</ul>
+        <ul>{props.children}
+        </ul>
       </section>
-    </section>
+    </section> */
+    <p>no</p>
   )
 }
 
