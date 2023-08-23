@@ -70,7 +70,7 @@ function HomePage () {
           />
         )}
       /> */}
-        {/* {todo => (
+        {todo => (
           <TodoItem
             key={todo.id}
             text={todo.text}
@@ -79,14 +79,14 @@ function HomePage () {
               navigate.push(
                 '/edit-todo/' + todo.id,
                 {
-                  state: { todo }
+                  hash: todo.text 
                 }
               )
             }}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
           />
-        )} */}holi
+        )}
       </TodoList>
       {/* <TodoList>
         {error && <p>Desespérate, hubo un error...</p>}
@@ -111,7 +111,7 @@ function HomePage () {
           <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
         </Modal>
       )} */}
-      <CreateTodoButton onClick={() => navigate('/new-todo')} />
+      <CreateTodoButton onClick={() => navigate.push('/new-todo')} />
       {/*       {!!openModalEdit && (
         <ModalEdit>
           <TodoFormValue />

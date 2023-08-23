@@ -17,12 +17,12 @@ function TodoForm (props) {
 
   const onCancel = () => {
     // setOpenModal(false)
-    navigate('/')
+    navigate.push('/')
   }
 
   const onSubmit = (event) => {
     event.preventDefault()
-    navigate('/')
+    navigate.push('/')
     props.submitEvent(newTodoValue)
     // setOpenModal(false)
   }

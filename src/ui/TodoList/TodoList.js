@@ -10,7 +10,7 @@ function TodoList (props) {
   const propSwi = props.children || props.render
 
   return (
-  /*  <section className='TodoList-container'>
+  <section className='TodoList-container'>
       {props.loading && props.onLoading()}
       <section className='TodoListMax'>
         {props.error && props.onError()}
@@ -18,13 +18,12 @@ function TodoList (props) {
 
         {!!props.totalTodos &&
           !props.searchedTodos.length &&
-          props.onEmptySearchResult(props.searchText)}
+          (props?.onEmptySearchResult && props?.onEmptySearchResult(props?.searchText))}
         {!props.loading && !props.error && props.searchedTodos.map(propSwi)}
         <ul>{props.children}
         </ul>
       </section>
-    </section> */
-    <p>no</p>
+    </section>
   )
 }
 

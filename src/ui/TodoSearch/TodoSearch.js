@@ -1,6 +1,7 @@
 /* eslint-disable  */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import './TodoSearch.css'
+import { useHistory, useLocation } from 'react-router-dom'
 // import { useLocation } from 'react-router-dom'
 
 /**
@@ -10,28 +11,32 @@ import './TodoSearch.css'
  * @param root0.setSearchValue
  * @param root0.loading
  */
-function TodoSearch ({ searchValue, setSearchValue, loading }) {
-  /* const [searchParams, setSearchParams] = useState()
+function TodoSearch({ searchValue, setSearchValue, loading }) {
+  const history = useHistory()
+  const { searchParams } = useLocation()
+  const search = useMemo(
+    () => new URLSearchParams(searchParams),
+    [searchParams, searchValue]
+  )
+  const onSearchValueChange = event => {
+    search.set('search', event.target.value)
+    setSearchValue(event.target.value)
+  }
 
-  const onSearchValueChange = (event) => {
-    const searchParams = {
-      search: event.target.value
+  useEffect(() => {
+    if (!search.get('search')) {
+      search.set('search', searchValue)
+      history.replace({ search: search.toString() })
     }
-    setSearchValue(searchParams)
-    setSearchParams(searchParams)
-  } */
-  /* useEffect(() => {
-    const search = searchParams.get('search') ?? ''
-    setSearchValue(search)
-  }, [searchParams]) */
+  }, [searchValue])
 
   return (
     <input
       className='TodoSearch'
       placeholder='Cebolla'
       value={searchValue}
-      /* onChange={onSearchValueChange}
-      disabled={loading} */
+      onChange={onSearchValueChange}
+      disabled={loading}
     />
   )
 }
