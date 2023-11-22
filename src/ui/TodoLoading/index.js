@@ -1,12 +1,15 @@
 import React from 'react'
 import './index.css'
 
-const TodoLoading = () => {
+const TodoLoading = ({ totalTodos }) => {
+  console.log(totalTodos)
   return (
-    <main className='superior'>
-      <h1>Estamos cargando, no te desesperes...</h1>
-      <img className='img' src='https://img.icons8.com/bubbles/50/000000/sunflower.png' />
-    </main>
+    <section className='skeleton-container'>
+
+      <div className='loading-skeleton' />
+      <div className='loading-skeleton' />
+      <div className='loading-skeleton' />
+    </section>
   )
 }
 

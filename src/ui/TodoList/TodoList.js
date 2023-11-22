@@ -20,7 +20,8 @@ function TodoList (props) {
           !props.searchedTodos.length &&
           (props?.onEmptySearchResult && props?.onEmptySearchResult(props?.searchText))}
         {!props.loading && !props.error && props.searchedTodos.map(propSwi)}
-        <ul>{props.children}
+        <ul>
+          {props.children}
         </ul>
       </section>
     </section>

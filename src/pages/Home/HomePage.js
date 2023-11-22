@@ -12,12 +12,6 @@ import { TodoError } from '../../ui/TodoError/todoError'
 import { EmptyTodos } from '../../ui/EmptyTodos/emptyTodos'
 import ChangeAlert from '../../ui/ChangeAlert'
 import { useHistory } from 'react-router-dom'
-// const defaultTodos = [
-//   { text: 'Cortar cebolla', completed: true },
-//   { text: 'Tomar el cursso de intro a React', completed: false },
-//   { text: 'Llorar con la llorona', completed: true },
-//   { text: 'LALALALAA', completed: false },
-// ];
 
 function HomePage () {
   const {
@@ -55,7 +49,7 @@ function HomePage () {
         searchText={searchValue}
         totalTodos={totalTodos}
         onError={() => <TodoError />}
-        onLoading={() => <TodoLoading />}
+        onLoading={() => <TodoLoading totalTodos={totalTodos} />}
         onEmptyTodos={() => <EmptyTodos />}
         /* onEmptySearchResult={(searchText) => <p>No hay resultado para {searchText}</p>} */
       >

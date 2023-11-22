@@ -13,7 +13,8 @@ const EditTodoPage = () => {
   let todoText
   /* if (location.state?.todo) {
     todoText = location.state.todo.text
-  } else  */if (loading) {
+  } else  */
+  if (loading) {
     return <p>Cargando...</p>
   } else {
     const todo = getTodo(id)
