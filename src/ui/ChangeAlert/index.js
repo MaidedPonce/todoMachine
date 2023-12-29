@@ -12,7 +12,7 @@ function ChangeAlert ({ sincronize }) {
     return (
       <div>
         <p>hubo cambios</p>
-        <button onClick={() => toggleShow(false)}>Cargar la info</button>
+        <button onClick={() => toggleShow(false)}>Cargar la info...</button>
       </div>
     )
   } else {
